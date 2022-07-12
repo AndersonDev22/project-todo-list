@@ -1,0 +1,36 @@
+.container{
+  margin-top:1rem;
+  display: flex;
+  justify-content:space-between;
+  gap: 1rem;
+  background: var(--gray-700);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  align-items:center;
+  width:100%;
+  border:1px solid var(--gray-600);
+}
+
+.buttons{
+  display: flex;
+}
+
+.container button{
+  background: transparent;
+  border: 0;
+  color: var(--gray-400);
+  cursor: pointer;
+  line-height: 0;
+  border-radius: 2px;
+
+}
+
+.container button:hover{
+  color: var(--red-500);
+}
+
+.container input{  
+  width: 1.2rem;
+  background: var(--purple-300);
+
+}

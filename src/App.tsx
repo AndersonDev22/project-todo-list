@@ -5,11 +5,9 @@ import { TasksList } from './components/TasksList/TasksList';
 
 export function App() {
   return (
-    <div>
+    <div className={Styles.wrapper}>
       <Header />
-      <div className={Styles.wrapper}>
-        <TasksList/>        
-      </div>
+      <TasksList/>        
     </div>
   )
 }
