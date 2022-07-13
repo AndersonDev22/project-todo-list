@@ -1,13 +1,15 @@
 import styles from './EmptyTasksList.module.css'
-import emptyTask from '../../assets/emptyTask.png';
+import Task from '../../assets/task.png';
 
 export function EmptyTasksList() {
   return (
     <div className={styles.container}>
-      <img src={emptyTask} alt="" />
-      <div>
-        <strong>Você ainda não tem tarefas cadastradas</strong>
-        <p>Crie tarefas e organize seus itens a fazer</p>
+      <img src={Task} alt="" />
+      <div className={styles.create}>
+        <strong>
+          You don't have any tasks registered yet.</strong>
+        <p>
+          Create tasks for your day!</p>
       </div>
     </div>
   )

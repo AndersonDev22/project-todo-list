@@ -1,53 +1,48 @@
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
-import { EmptyTasksList } from '../EmptyTasksList/EmptyTasksList';
-import Styles from './TasksList.module.css'
+import { Trash } from 'phosphor-react'
+import { useState } from 'react'
+import styles from './TasksList.module.css'
 
-export function TasksList() {
-  const [tasks, setTasks] = useState([''])
+type TaskList = {
+  id: string
+  task: string
+  isCompleted: boolean
+}
 
-  const [newTasks, setNewTasks] = useState('')
+interface TasksListProps {
+  task: TaskList
+  onDeleteTask: (taskId: string) => void
+  onChangeTaskIsCompleted: (taskId: string) => void
+}
 
-  function handleCreateNewTask(event: FormEvent) {
-    event.preventDefault()
-    setTasks([...tasks, newTasks])
-    setNewTasks('')
+export function TasksList({
+  task,
+  onDeleteTask,
+  onChangeTaskIsCompleted,
+}: TasksListProps) {
+  const [isChecked, setIsChecked] = useState(task.isCompleted)
+
+  function handleDeleteTask() {
+    onDeleteTask(task.id)
   }
 
-  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
-    event.target.setCustomValidity('')
-    setNewTasks(event.target.value);
+  function handleChangeTask() {
+    onChangeTaskIsCompleted(task.id)
   }
-
-  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
-    event.target.setCustomValidity('Esse campo é obrigatório!')
-  }
-
-  const isNewTaskEmpty = newTasks.length === 0;
 
   return (
-    <div className={Styles.tasksList}>      
-      <div className={Styles.tasksListAdd}>
-       
-        <input 
-        type="text" 
-        placeholder='Enter a new task'
-        value={newTasks}
-        onChange={handleNewTaskChange}
-        onInvalid={handleNewTaskInvalid}
-        required
-        />
-
-        <button 
-        type='submit'
-        className={Styles.button} 
-        disabled={isNewTaskEmpty}
-        onClick={handleCreateNewTask}        
-        >
-          Add task
-        </button>
-      </div>
-      <EmptyTasksList/>
-  
+    <div className={styles.container}>
+      <input
+        type="checkbox"
+        id={task.id}
+        onClick={handleChangeTask}
+        onChange={(event) => setIsChecked(event.target.checked)}
+        checked={isChecked}
+      />
+      <label htmlFor={task.id} />
+      <p>{task.task}</p>
+      <button title="Delete Task" onClick={handleDeleteTask}>
+        <Trash size={24} />
+      </button>
     </div>
   )
 }

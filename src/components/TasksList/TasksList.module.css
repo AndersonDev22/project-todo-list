@@ -1,46 +1,79 @@
-.tasksList{
-  background: var(--gray-800);
+.container {
   display: flex;
-  justify-content: center;
-  align-items:center;
-  flex-direction:column;
-  padding: 1.25rem 2rem;
-  width:100%;
-  border-radius: 10px;
-  max-width: 60rem;
-  margin-top:-3.5rem;
-}
-
-.tasksListAdd{
-  display: flex;
-  align-items:center;
-  width:100%;
-}
-
-.tasksList input{
   padding: 1rem;
-  color: var(--purple-400);
-  width:100%;
-  margin-right:1rem;
-  border-radius:8px;
-  border:2px solid var(--gray-800);
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  background:var(--gray-600);
+  border-radius: 8px;
 }
 
-.button{
-  padding: 1rem 0;
-  border-radius:8px;
-  background: var(--blue-300);
-  width:8rem;
-  cursor:pointer;
-  border:2px solid var(--gray-800);
+/* .task {
+  display: flex;
+  padding: 1rem;
+  align-items: flex-start;
+  background: var(--gray-500);
+  border-radius: 8px;
+  border:1px solid 
+} */
+
+.container input[type="checkbox"] {
+  display: none;
+}
+
+.container p {
+  flex: 1;
+  margin-right: 0.75rem;
+}
+
+.container input[type="checkbox"] + label:before {
+  display: flex;
+  content: '';
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 2px solid var(--purple-300);
+  vertical-align: middle;
+  margin-right: 0.75rem;
+  cursor: pointer;
+}
+
+/* .container input[type="checkbox"] + label:hover:before {
+  border: 2px solid var(--blue-500);
+} */
+
+.container input[type="checkbox"]:checked + label:before {
+  background: url('../../assets/checked.png') no-repeat center var(--purple-400);
+  border: 2px solid var(--purple-300);
+}
+
+.container input[type="checkbox"]:checked + label:hover:before {
+  background-color: var(--purple-400);
+  border: 2px solid var(--purple-300);
+}
+
+.container input[type="checkbox"]:checked + label + p {
   color: var(--white);
+  text-decoration: line-through;
 }
 
-.tasksList .button:hover{
-  background: var(--blue-500);
+.container button {
+  display: flex;
+  padding: 0.1rem;
+  border: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--red-500);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-.tasksList .button:disabled{
-  background: var(--gray-400);
-  cursor:not-allowed;
+.container button:hover {
+  background: var(--red-500);
+  color:var(--white);
+  stroke: var(--danger);
 }
