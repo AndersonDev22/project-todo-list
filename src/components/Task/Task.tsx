@@ -78,7 +78,7 @@ export function FormTasks() {
       <form onSubmit={handleCreateNewTask} className={styles.createdNewTask}>
         <input
           type="text"
-          placeholder="Enter new task"
+          placeholder="Enter a new task"
           onChange={handleNewTaskChange}
           value={task}
         />
