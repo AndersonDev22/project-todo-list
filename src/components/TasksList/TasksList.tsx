@@ -1,37 +1,52 @@
-import { ChangeEvent, useState } from 'react';
-import { Task } from '../Task/Task'
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+import { EmptyTasksList } from '../EmptyTasksList/EmptyTasksList';
 import Styles from './TasksList.module.css'
 
 export function TasksList() {
-  const [newTaskText, setNewTaskText] = useState('')
+  const [tasks, setTasks] = useState([''])
+
+  const [newTasks, setNewTasks] = useState('')
+
+  function handleCreateNewTask(event: FormEvent) {
+    event.preventDefault()
+    setTasks([...tasks, newTasks])
+    setNewTasks('')
+  }
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity('')
-    setNewTaskText(event.target.value);
+    setNewTasks(event.target.value);
   }
 
-  const isNewTaskEmpty = newTaskText.length === 0;
+  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('Esse campo é obrigatório!')
+  }
+
+  const isNewTaskEmpty = newTasks.length === 0;
 
   return (
     <div className={Styles.tasksList}>      
       <div className={Styles.tasksListAdd}>
+       
         <input 
         type="text" 
         placeholder='Enter a new task'
-        value={newTaskText}
+        value={newTasks}
         onChange={handleNewTaskChange}
+        onInvalid={handleNewTaskInvalid}
         required
         />
+
         <button 
+        type='submit'
         className={Styles.button} 
-        disabled={isNewTaskEmpty}        
+        disabled={isNewTaskEmpty}
+        onClick={handleCreateNewTask}        
         >
           Add task
         </button>
       </div>
-      <Task
-       content={comment}
-       onDeleteTask={deleteTask} />
+      <EmptyTasksList/>
   
     </div>
   )

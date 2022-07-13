@@ -6,7 +6,7 @@ export function Header(){
     <header className={Styles.header}>
       <img src={TodoLogo} alt='Logo do Ignite'/>
       <strong>
-        Todo Task
+        My To-do List
       </strong>
     </header>
   )

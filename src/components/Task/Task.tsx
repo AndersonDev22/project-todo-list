@@ -1,5 +1,4 @@
-import { ThumbsUp, Trash } from 'phosphor-react'
-import { useState } from 'react'
+import { Trash } from 'phosphor-react'
 import Styles from './Task.module.css'
 
 interface TaskProps {
@@ -22,7 +21,11 @@ export function Task({ content, onDeleteTask }:TaskProps) {
         type="checkbox"
         onClick={handleDeleteTask} 
         />
-        <button title="Delete task">
+        <button 
+        title="Delete task"
+        onClick={handleDeleteTask}
+        >
+          
           <Trash size={24} />
         </button>
       </div>
