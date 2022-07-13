@@ -23,8 +23,8 @@ export function FormTasks() {
     }
   }, [])
 
-  function handleCreateNewTask(event: FormEvent) {
-    event.preventDefault()
+  function handleCreateNewTask(e: FormEvent) {
+    e.preventDefault()
 
     const newTask = {
       id: ids(),
@@ -38,7 +38,6 @@ export function FormTasks() {
       'myTodoList',
       JSON.stringify([...tasksList, newTask]),
     )
-
     setTask('')
   }
 
@@ -109,7 +108,6 @@ export function FormTasks() {
             )}
           </div>
         </div>
-
         {tasksList.length !== 0 ? (
           tasksList.map((task) => {
             return (
