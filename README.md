@@ -1,20 +1,34 @@
-# Desafio - Code Challenge Processo Seletivo Devex Soluções - Estágiario Frontend
-Desafio elaborado para construir uma aplicação que deve renderizar fotos do Mars Rover e informações da camêra e do rover, dando a possibilidade do usuário expandir a imagem, se assim desejar.
+# Desafio 01 - Praticando os conceitos do ReactJS - Trilha Ignite 2022
+Desafio elaborado pela Rocketseat para reforçar os conceitos mais importantes do ReactJS.
+Foi designado desenvolver uma aplicação de controle de tarefas no estilo to-do list, onde era preciso usar as seguintes funcionalidades:
+
+- Adicionar uma nova tarefa
+- Marcar e desmarcar uma tarefa como concluída
+- Remover uma tarefa da listagem
+- Mostrar o progresso de conclusão das tarefas
+
+- Estados
+- Imutabilidade do estado
+- Listas e chaves no ReactJS
+- Propriedades
+- Componentização
+
 
 ## Para esse projeto foram usadas tecnologias como:
 
-- NextJS
+- ReactJS (Vite)
 - TypeScript
-- TailwindCSS
-- Radixui
-- React Query
+- Css modules
+- UUID
+- PhosphorIcons (ícones)
 
-## API:
+![image](https://user-images.githubusercontent.com/82759354/178800153-62d7c299-2829-4946-ba2c-664a27823d14.png)
 
--API - Seção Mars Rover Photos: https://mars-photos.herokuapp.com/api/v1/rovers/Perseverance/photos?sol=557
-
-![image](https://user-images.githubusercontent.com/82759354/190941836-88fdb1e8-431a-4a8d-bd92-50b18f751c2e.png)
-![image](https://user-images.githubusercontent.com/82759354/190941876-9688654f-cd71-41b1-a59a-aed789103f68.png)
+Acesse o projeto Clicando aqui: (https://project-todo-list-sable.vercel.app/)
 
 
-Acesse o projeto Clicando aqui: (https://projeto-devex.vercel.app/)
+
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Getting Started
